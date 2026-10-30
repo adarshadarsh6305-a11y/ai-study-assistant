@@ -8,7 +8,12 @@ const { GoogleGenAI } = require("@google/genai");
 const app = express();
 const PORT = 5000;
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://ai-study-assistant-tinder3.vercel.app"
+    ]
+}));
 app.use(express.json({ limit: "1mb" }));
 
 const ai = new GoogleGenAI({
